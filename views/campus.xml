@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report id="preview_rml_report" model="res.config.settings" name="preview.report" menu="False" rml="base/report/preview_report.rml" string="Preview RML Report"/>
+
+        <record id="view_campus_form" model="ir.ui.view">
+            <field name="name">eschool.campus.form</field>
+            <field name="model">eschool.campus</field>
+            <field name="arch" type="xml">
+                <form string="Campus">
+                  <sheet>
+                    <field name="logo" widget="image"  class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label string="Campus Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <label string="Institute Slogan" class="oe_edit_only"/>
+                        <h3>
+                            <field name="rml_header1" placeholder="e.g. Builds Your Future Shining"/>
+                        </h3>
+                   <label for="campus_code" class="oe_edit_only"/>
+                        <h3>
+                            <field name="campus_code" placeholder="e.g. Mirpur Campus"/>
+                        </h3>
+                    </div>
+                    <notebook colspan="4">
+                        <page string="General Information">
+                            <group>
+                                <group>
+                                    <field name="partner_id" readonly="1" required="0" groups="base.group_no_one"/>
+                                    <label for="street" string="Address"/>
+                                    <div class="o_address_format">
+                                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                        <field name="city" placeholder="City" class="o_address_city"/>
+                                        <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                        <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True}'/>
+                                    </div>
+                                    <field name="website" widget="url" placeholder="e.g. www.odoo.com"/>
+                                </group>
+                                <group>
+                                    <field name="phone"/>
+                                    <field name="fax"/>
+                                    <field name="email"/>
+                                    <field name="vat"/>
+                                    <field name="company_registry"/>
+                                    <field name="currency_id" options="{'no_create': True}" id="company_currency"/>
+                                    <field name="parent_id"  groups="base.group_multi_company"/>
+                                    <field name="signature" widget="image" />
+                                    <field name="sequence" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="institute_detail" string="Institute Detail">
+                        <separator string="Accreditation"
+                            colspan="4" />
+                        <field name="accreditation" colspna="4"
+                            nolabel="1" />
+                        <separator string="Approval Authority"
+                            colspan="4" />
+                        <field name="approval_authority" colspna="4"
+                            nolabel="1" />
+                    </page>
+                    <page name="version_medium" string="Version/Medium">
+
+                        <field name="medium_ids" colspna="4"/>
+
+                    </page>
+                     <page name="shift" string="Shifts">
+
+                        <field name="shift_ids" colspna="4"/>
+
+                    </page>
+
+                     <page name="Other Settings" string="Shifts">
+
+                        <field name="shift_ids" colspna="4"/>
+
+                    </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_campus_tree" model="ir.ui.view">
+            <field name="name">eschool.campus.tree</field>
+            <field name="model">eschool.campus</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <tree string="Campuses">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_campus_tree" model="ir.actions.act_window">
+            <field name="name">Campuses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eschool.campus</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('id','=',active_id)]</field>
+        </record>
+        <record id="action_campus_form" model="ir.actions.act_window">
+            <field name="name">Campuses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eschool.campus</field>
+            <field name="view_type">form</field>
+            <field name="help">Create and manage the Campuses that will be managed by Eagle Team from here. Shops or subsidiaries can be created and maintained from here.</field>
+        </record>
+        <menuitem action="action_campus_form" id="menu__company_form" parent="openeducat_core.menu_op_school_config_general"/>
+
+        <!--<record id="ir_open_company" model="ir.values">-->
+            <!--<field eval="'tree_but_open'" name="key2"/>-->
+            <!--<field eval="'res.company'" name="model"/>-->
+            <!--<field name="name">Companies</field>-->
+            <!--<field eval="'ir.actions.act_window,%d'%company_normal_action_tree" name="value"/>-->
+        <!--</record>-->
+
+    </data>
+</odoo>

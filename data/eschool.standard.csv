@@ -1,0 +1,13 @@
+id,campus_ids/id,code,description,name,sequence
+__export__.eschool_standard_4,,C1,,class 1,1
+__export__.eschool_standard_6,,C2,,Class 2,2
+__export__.eschool_standard_7,,C3,,Class 3,3
+__export__.eschool_standard_8,,C4,,Class 4,4
+__export__.eschool_standard_9,,C5,,Class 5,5
+__export__.eschool_standard_10,,C6,,Class 6,6
+__export__.eschool_standard_11,,C7,,class 7,7
+__export__.eschool_standard_12,,C8,,Class 8,8
+__export__.eschool_standard_13,,C9,,Class 9,9
+__export__.eschool_standard_16,,OL,,O Level,9
+__export__.eschool_standard_14,,C10,,Class 10,10
+__export__.eschool_standard_15,,SSC,,SSC,11

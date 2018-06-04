@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  <record id="openeducat_core_course_form_inherit" model="ir.ui.view">
+     <field name="name">next.op.course.inherit</field>
+      <field name="model">op.course</field>
+      <field name="priority">24</field>
+     <field name="inherit_id" ref="openeducat_core.view_op_course_form"/>
+     <field name="arch" type="xml">
+       <xpath expr="//field[@name='code']" position="after">
+         <field name="medium_id"/>
+         <field name="batch_id"/>
+         <field name="standard_id"/>
+       </xpath>
+     </field>
+   </record>
+  <record id="openeducat_core_course_tree_inherit" model="ir.ui.view">
+     <field name="name">next.op.course.tree.inherit</field>
+      <field name="model">op.course</field>
+      <field name="priority">24</field>
+     <field name="inherit_id" ref="openeducat_core.view_op_course_tree"/>
+     <field name="arch" type="xml">
+       <xpath expr="//field[@name='code']" position="after">
+         <field name="medium_id"/>
+         <field name="batch_id"/>
+         <field name="standard_id"/>
+       </xpath>
+     </field>
+   </record>
+  <record id="openeducat_core_batch_form_inherit" model="ir.ui.view">
+     <field name="name">next.op.batch.inherit</field>
+      <field name="model">op.batch</field>
+      <field name="priority">24</field>
+     <field name="inherit_id" ref="openeducat_core.view_op_batch_form"/>
+     <field name="arch" type="xml">
+       <xpath expr="//field[@name='course_id']" position="replace">
+           <field name="current"/>
+       </xpath>
+     <xpath expr="//group[@name='main']" position="after">
+          <field name="course_id"/>
+       </xpath>
+     </field>
+   </record>
+  <record id="eschool_medium_view_tree" model="ir.ui.view">
+          <field name="name">eschool.medium.tree</field>
+          <field name="model" >eschool.medium</field>
+          <field name="priority" eval="8" />
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="code"/>
+                  <field name="description"/>
+                  <field name="course_ids"/>
+                  <field name="standard_ids"/>
+              </tree>
+          </field>
+      </record>
+  <record id="eschool_medium_view_form" model="ir.ui.view">
+          <field name="name">eschool.medium.form</field>
+          <field name="model" >eschool.medium</field>
+          <field name="priority" eval="8" />
+          <field name="arch" type="xml">
+              <form>
+                  <group collum="4" colspan="4">
+                  <field name="name"/>
+                  <field name="code"/>
+                  <field name="description"/>
+                  <field name="course_ids"/>
+                  <field name="standard_ids"/>
+                </group>
+              </form>
+          </field>
+      </record>
+  <record id="action_open_view_eschool_medium" model="ir.actions.act_window">
+            <field name="name">Medium</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eschool.medium</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+  <menuitem id="menu_eschool_medium" name="Medium"
+            parent="openeducat_core.menu_op_school_config_general" sequence="40"
+            action="action_open_view_eschool_medium" groups="openeducat_core.group_op_back_office" />
+
+  <record id="openeducat_core_student_form_inherit" model="ir.ui.view">
+     <field name="name">next.op.student.inherit</field>
+      <field name="model">op.student</field>
+      <field name="priority">24</field>
+     <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+     <field name="arch" type="xml">
+       <xpath expr="//field[@name='visa_info']" position="replace">
+       </xpath>
+     </field>
+<field name="arch" type="xml">
+       <xpath expr="//field[@name='email']" position="after">
+           <field name="mobile"/>
+       </xpath>
+     </field>
+   </record>
+
+
+      <record id="view_eschool_standard_Form" model="ir.ui.view">
+          <field name="name">eschool.standard.form</field>
+          <field name="model">eschool.standard</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group colum="4">
+                      <field name="sequence"/>
+                      <field name="name"/>
+                      <field name="code"/>
+                      <field name="description"/>
+                      <field name="course_ids"/>
+                      <field name="campus_ids"/>
+                      <field name="medium_ids"/>
+
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_op_attendance_sheet_form_inherit" model="ir.ui.view">
+      <field name="name">op.attendance.sheet.form.inherit</field>
+      <field name="model">op.attendance.sheet</field>
+      <field name="priority" eval="8" />
+    <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_form"/>
+      <field name="arch" type="xml">
+         <xpath expr="//group[2]" position="before">
+                  <button name="get_students" type="object" string="Get Students"/>
+
+         </xpath>
+      </field>
+  </record>
+
+
+
+      <record id="view_eschool_standard_tree" model="ir.ui.view">
+          <field name="name">eschool.standard.tree</field>
+          <field name="model">eschool.standard</field>
+          <field name="arch" type="xml">
+              <tree>
+
+                      <field name="sequence"/>
+                      <field name="name"/>
+                      <field name="code"/>
+                      <!--<field name="description"/>-->
+                      <field name="course_ids"/>
+                      <field name="campus_ids"/>
+                      <field name="medium_ids"/>
+
+
+              </tree>
+          </field>
+      </record>
+<record id="action_open_view_eschool_standard" model="ir.actions.act_window">
+    <field name ="name">Standard</field>
+    <field name ="type">ir.actions.act_window</field>
+    <field name ="res_model">eschool.standard</field>
+    <field name ="view_type">form</field>
+    <field name ="view_mode">tree,form</field>
+</record>
+<menuitem id="open_view_eschool_standard" action="action_open_view_eschool_standard" name="Standard" sequence="13" parent="openeducat_core.menu_op_school_config_general"/>
+  </data>
+</odoo>

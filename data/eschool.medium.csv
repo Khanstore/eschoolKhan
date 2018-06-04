@@ -1,0 +1,8 @@
+id,code,description,name,standard_ids/id
+__export__.eschool_medium_1,BM,according to the syllabus and Curriculum of Bangladesh Text Book Board   ,Bengali Medium,"__export__.eschool_standard_4,__export__.eschool_standard_6,__export__.eschool_standard_7,__export__.eschool_standard_8,__export__.eschool_standard_9,__export__.eschool_standard_10,__export__.eschool_standard_11,__export__.eschool_standard_12,__export__.eschool_standard_13,__export__.eschool_standard_14,__export__.eschool_standard_15"
+,,,,
+,,,,
+,,,,
+__export__.eschool_medium_2,EM,"according to the syllabus and Curriculum of British international Curriculum
+",English Medium,"__export__.eschool_standard_4,__export__.eschool_standard_6,__export__.eschool_standard_7,__export__.eschool_standard_8,__export__.eschool_standard_9,__export__.eschool_standard_10,__export__.eschool_standard_11,__export__.eschool_standard_12,__export__.eschool_standard_16"
+__export__.eschool_medium_3,EV,Bangladesh national Curriculum But English version,English Version,"__export__.eschool_standard_4,__export__.eschool_standard_6,__export__.eschool_standard_7,__export__.eschool_standard_8,__export__.eschool_standard_9,__export__.eschool_standard_10,__export__.eschool_standard_11,__export__.eschool_standard_12,__export__.eschool_standard_13,__export__.eschool_standard_14,__export__.eschool_standard_15"
